@@ -8,6 +8,7 @@ const items = ref([
     {id:'3', label: '1 chela'}
     
 ]);
+const newItem =ref('');
 </script>
 
 <template>
@@ -15,8 +16,9 @@ const items = ref([
     <i class="material-icons shopping-cart-icon">local_mall </i>
     {{ header }}
 </h1>
+<input v-model="newItem" type="text"placeholder="Agregar Articulo">{{ newItem }}
 <ul>
- <li v-for="item in items" :key="item.id"> 👜{{ item.label }}</li>
+ <li v-for="(item, i) in items" :key="item.id"> {{ i+1 }} {{ i%2==0?'🔥':'🛍' }} {{ item.label }}</li>
 </ul>
 </template>
 
