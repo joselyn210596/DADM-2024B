@@ -54,11 +54,7 @@ const activateEdition = (activate)=>{
      :href="newItem === '' ? 'https://www.google.com' : 'https://' + newItem" 
     target="_blank" -->
  
-  <a 
-    :href="newItem === '' ? 'https://www.google.com' : 'https://' + newItem" 
-    target="_blank">
-    {{ newItem === '' ? '😒 Link' : newItem }}
-  </a>
+
   <!--- agrupando entradas de usuario-->
   <form 
   class="add-item form"
@@ -71,7 +67,9 @@ const activateEdition = (activate)=>{
     Alta Prioridad
   </label>
   <!--Boton-->
-  <button class="btn btn-primary">
+  <button 
+  :disabled="newItem.length == 0"
+  class="btn btn-primary">
     Salvar Articulo
   </button>
   </form>
