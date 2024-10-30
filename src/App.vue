@@ -24,6 +24,10 @@ const editing = ref(true);
 const activateEdition = (activate)=>{
   editing.value=activate;
 };
+// Alternando estado de compra del item
+const togglePurchased = (item) => {
+  item.purchased = !item.purchased;
+};
 //metodos 
 </script>
 
@@ -78,6 +82,17 @@ const activateEdition = (activate)=>{
   {{ iceCreamFlavors }}
   <ul></ul>
   {{ newItemHighPriority }}
+  <!-- Lista -->
+  <ul>
+    <li
+      v-for="({ id, label, purchased, priority }, index) in items"
+      @click="togglePurchased(items[index])"
+      v-bind:key="id"
+      :class="{ strikeout: purchased, priority: highPriority }"
+    >
+      ⚜ {{ label }}
+    </li>
+  </ul>
   <!-- Lista clases como objetos -->
   <ul>
     <li 
@@ -91,14 +106,15 @@ const activateEdition = (activate)=>{
 
   <!-- Lista clases como arreglos -->
   <ul>
-    <li 
-    v-for="{label,id, purchased, priority} in items" 
-    :key="id" 
-    :class="[purchased ? 'strikeout' : '', priority ? 'priority' : '']"> 
-    {{ priority ? "🔥": "👜" }} {{  label }} 
-  </li>
+  <li 
+	v-for="({ id, label, purchased, highPriority }, index) in reversedItems"
+  :class="{ strikeout: item.purchased, priority: item.priority }"
+	@click="togglePurchased(reversedItems[index])" 
+  v-bind:key="id">
+	  ➡️ {{ label }}
+</li>
   </ul>
-  <p v-if="items.length === 0">🥀NO HAY ELEMNTOS EN LISTA🥀 </p>
+  <p v-if="items.length === 0">🥀NO HAY ELEMENTOS EN LISTA🥀 </p>
 </template>
 
 <style scoped>
