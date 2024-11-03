@@ -28,6 +28,16 @@ const activateEdition = (activate)=>{
 const togglePurchased = (item) => {
   item.purchased = !item.purchased;
 };
+// Creando una propiedad computada
+const characterCount = computed(()=>{
+  // Toda propiedad computada debe regresar un valor
+  return newItem.value.length;
+});
+// Creando propiedad computada que invierte items de la lista
+const reversedItems = computed(() => {
+  return [...items.value].reverse(); 
+  
+});
 //metodos 
 </script>
 
