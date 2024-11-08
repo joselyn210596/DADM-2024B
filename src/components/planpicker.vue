@@ -1,5 +1,5 @@
 <script setup>
-import planItem from './plan-item.vue';
+import planpickerItem from './planpickerItem.vue';
 import {ref} from 'vue';
 const plans= ref(['El cafetero','El chelero','El intelectual']);      
 </script>
