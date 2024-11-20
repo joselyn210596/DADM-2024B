@@ -7,7 +7,8 @@ const selectedPlan = ref(null);
 const plans= ref(['El cafetero','El chelero','El intelectual']); 
 const selectPlan=(name)=>{
 // almacenar el plan seleccionado
-selectedPlan.value = name};    
+selectedPlan.value = name;
+};    
 </script>
 
 <template>
@@ -18,7 +19,7 @@ selectedPlan.value = name};
     :select-plan="selectedPlan"/>
      
     </div>
-    <p> {{ selectedPlan }}</p>
+    
 </template>
 
 
