@@ -9,17 +9,20 @@ const selectPlan=(name)=>{
 // almacenar el plan seleccionado
 selectedPlan.value = name;
 };  
+const plansWrapper= ref(null);
+
 //Intentando obtener la referencia al elemento .plans
 console.log("termina de ejecutar el script setup 😅");
 //registrando el hook mounted
-onMounted(() => {console.log("el componente PlanPicker se ha montado");
-    console.log(document.querySelector('.plans'));
+onMounted(() => {
+    console.log("el componente PlanPicker se ha montado");
+    console.log(plansWrapper.value);
  });
 
 </script>
 
 <template>
-    <div class="plans">
+    <div ref="plansWrapper" class="plans">
     <PlanpickerItem v-for="plan in plans"
     :key="plan" :name="plan" 
     @select="selectPlan"
